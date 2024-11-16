@@ -4,7 +4,7 @@ pd.set_option('display.width', 2000)
 import numpy as np
 
 
-'''
+
 input_file = "E:\\科研\\自备资料\\控制变量面板数据生成\\1_FirmBasicSituation.xlsx"
 Base_file = pd.read_excel(input_file)
 Base_file.drop(index=[0, 1], inplace=True)  # 删除前两行，注意变量名问题；替换原有的Dataframe
@@ -36,11 +36,11 @@ for col in new_column_names.values():
 
 output_file1 = "E:\\科研\\自备资料\\控制变量面板数据生成\\1_FirmBasicSituation(done).xlsx"
 Base_file.to_excel(output_file1, index=False)
-'''
+
 
 ########2222222222222######################################
 
-'''
+
 input_file = "E:\\科研\\自备资料\\控制变量面板数据生成\\2_ProfitExcel.xlsx"
 Profit_statement = pd.read_excel(input_file, skiprows=[0])
 Profit_statement.drop(index=[0], inplace=True)
@@ -71,12 +71,12 @@ Profit_statement['growth'] = Profit_statement.groupby('stock')['T_revenue'].pct_
 
 output_file2 = "E:\\科研\\自备资料\\控制变量面板数据生成\\2_ProfitExcel(done).xlsx"
 Profit_statement.to_excel(output_file2, index=False)
-'''
+
 
 
 #########33333333333333333##############################
 
-'''
+
 input_file = "E:\\科研\\自备资料\\控制变量面板数据生成\\3_CashFlowTable.xlsx"
 Cashflow_statement = pd.read_excel(input_file, skiprows=[0])
 Cashflow_statement.drop(index=[0], inplace=True)
@@ -96,11 +96,11 @@ Cashflow_statement = Cashflow_statement.groupby(['stock', 'year']).agg(
 output_file3 = "E:\\科研\\自备资料\\控制变量面板数据生成\\3_CashFlowTable(done).xlsx"
 Cashflow_statement.to_excel(output_file3, index=False)
 print(Cashflow_statement.head())
-'''
+
 
 ########4444444444444444###############################
 
-'''
+
 input_file = "E:\\科研\\自备资料\\控制变量面板数据生成\\4_BalanceSheet.xlsx"
 Balance_statement = pd.read_excel(input_file, skiprows=[0])
 Balance_statement.drop(index=[0], inplace=True)
@@ -122,11 +122,11 @@ Cashflow_statement = Balance_statement.groupby(['stock', 'year']).agg(
     lambda x: x.sum() if not x.isna().all() else pd.NA).reset_index()
 output_file4 = "E:\\科研\\自备资料\\控制变量面板数据生成\\4_BalanceSheet(done).xlsx"
 Cashflow_statement.to_excel(output_file4, index=False)
-'''
+
 
 #######55555555555555################################
 
-'''
+
 input_file = "E:\\科研\\自备资料\\控制变量面板数据生成\\5_CG_ManagerShareSalary.xlsx"
 Manage1_statement = pd.read_excel(input_file, skiprows=[0])
 print(Manage1_statement.head())
@@ -157,11 +157,11 @@ for col in new_column_names.values():
         Manage1_statement[col] = pd.to_numeric(Manage1_statement[col], errors='coerce')
 output_file5 = "E:\\科研\\自备资料\\控制变量面板数据生成\\5_CG_ManagerShareSalary(done).xlsx"
 Manage1_statement.to_excel(output_file5, index=False)
-'''
+
 
 #########66666666666666666##############################
 
-'''
+
 input_file = "E:\\科研\\自备资料\\控制变量面板数据生成\\6_TotalShares.xlsx"
 Manage2_statement = pd.read_excel(input_file, skiprows=[0])
 Manage2_statement.drop(index=[0], inplace=True)
@@ -178,11 +178,11 @@ for col in new_column_names.values():
 output_file6 = "E:\\科研\\自备资料\\控制变量面板数据生成\\6_TotalShares(done).xlsx"
 Manage2_statement.to_excel(output_file6, index=False)
 print(Manage2_statement.head())
-'''
+
 
 #########777777777777777##############################
 
-'''
+
 input_file = "E:\\科研\\自备资料\\控制变量面板数据生成\\7_RelativeiValueIn.xlsx"
 Relativeindex_statement = pd.read_excel(input_file, skiprows=[0])
 Relativeindex_statement.drop(index=[0], inplace=True)
@@ -210,11 +210,11 @@ Relativeindex_statement = Relativeindex_statement.groupby(['stock', 'year']).agg
 output_file7 = "E:\\科研\\自备资料\\控制变量面板数据生成\\7_RelativeiValueIn(done).xlsx"
 Relativeindex_statement.to_excel(output_file7, index=False)
 print(Relativeindex_statement.head())
-'''
+
 
 #########888888888888888##############################
 
-'''
+
 input_file1 = "E:\\科研\\自备资料\\控制变量面板数据生成\\8_ShareHold_a.xlsx"
 input_file2 = "E:\\科研\\自备资料\\控制变量面板数据生成\\8_ShareHold_b.xlsx"
 input_file3 = "E:\\科研\\自备资料\\控制变量面板数据生成\\8_ShareHold_c.xlsx"
@@ -258,11 +258,11 @@ balance_data = balance_data.groupby(['stock', 'year']).agg(
 
 balance_data.to_excel(output_path, index=False)
 print(balance_data.head())
-'''
+
 
 #########0000000000000000##############################
 
-'''
+
 file_paths = [
     "E:\\科研\\自备资料\\控制变量面板数据生成\\1_FirmBasicSituation(done).xlsx",
     "E:\\科研\\自备资料\\控制变量面板数据生成\\2_ProfitExcel(done).xlsx",
@@ -299,7 +299,7 @@ output_path = "E:\\科研\\自备资料\\控制变量面板数据生成\\0_Merge
 base_data.to_csv(output_path, index=False)
 print(f"所有文件已成功合并并保存到 {output_path}")
 print(base_data.info)
-'''
+
 
 
 
